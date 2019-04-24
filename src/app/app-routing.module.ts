@@ -6,6 +6,11 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => LoginModule
+  },
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
   }
 ];
 

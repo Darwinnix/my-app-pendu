@@ -10,7 +10,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {useHash: fals
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     rootRouting,
