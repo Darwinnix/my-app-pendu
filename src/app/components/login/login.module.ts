@@ -12,7 +12,7 @@ const loginRouting: ModuleWithProviders = RouterModule.forChild( [
     component: LoginComponent
   },
   {
-    path: '',
+    path: 'login',
     component: LoginComponent
   }
 ]);

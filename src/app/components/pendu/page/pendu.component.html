@@ -1,3 +1,11 @@
-<p>
-  pendu works!
-</p>
+<div class="card" style="margin:10% 10%;">
+  <div class="card-body">
+    <h1>{{randomMot?.mot}}</h1>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-info" *ngIf="randomMot == undefined" (click)="randomizeMot()">Commencez</button>
+    <button class="btn btn-warning" *ngIf="randomMot != undefined" (click)="randomizeMot()">Changer le mot</button>
+  </div>
+
+
+</div>
