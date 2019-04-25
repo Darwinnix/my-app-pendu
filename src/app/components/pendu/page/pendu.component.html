@@ -1,6 +1,9 @@
 <div class="card" style="margin:10% 10%;">
-  <div class="card-body">
-    <h1>{{randomMot?.mot}}</h1>
+  <div class="card-body" (keypress)="chooseLetter($event)">
+    <div class="row">
+      <h1 *ngFor="let lettre of motMystere"><strong>{{lettre}}</strong></h1>
+    </div>
+    <h2>{{randomMot?.mot}}</h2>
   </div>
   <div class="card-footer">
     <button class="btn btn-info" *ngIf="randomMot == undefined" (click)="randomizeMot()">Commencez</button>
