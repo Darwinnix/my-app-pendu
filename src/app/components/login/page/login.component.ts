@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserModel} from '../../../shared/models/user.model';
 import {LoginService} from '../services/login.service';
@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
+  @Output()
   user: UserModel = new UserModel();
 
   constructor(
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginForm.get('username').setValue(this.user.username);
+    this.user.username = this.loginForm.get('username').value;
     this._loginService.setUser(this.user);
   }
 }

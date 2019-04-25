@@ -7,7 +7,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {LoginModule} from './components/login/login.module';
 import {PenduModule} from './components/pendu/pendu.module';
 import {HttpClientModule} from '@angular/common/http';
-
+import {DocumentationModule} from './components/documentation/documentation.module';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {useHash: false});
 
@@ -21,6 +21,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {useHash: fals
     AppRoutingModule,
     LoginModule,
     PenduModule,
+    DocumentationModule,
     AngularFontAwesomeModule,
     HttpClientModule
   ],
