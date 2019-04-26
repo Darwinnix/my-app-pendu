@@ -1,0 +1,50 @@
+<div class="app flex-row align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <form class="card-group" [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="card p-4">
+            <div class="card-body">
+              <div class="text-center">
+                <img src="../../../../assets/img/icon.png">
+              </div>
+              <h1 class="text-center" style="color: black"><strong>MY-APP: PENDU</strong></h1>
+              <h2 class="text-center">BIENVENUE</h2>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-user-o"></i>
+                    </span>
+                  </div>
+                  <input class="form-control"
+                         type="text"
+                         placeholder="Entrez un pseudonyme" required
+                         formControlName="username"
+                         name="email"
+                         id="email"
+                         [ngClass]="{'is-valid': !f.username.errors,
+                       'is-invalid': f.username.errors && (f.username.dirty || f.username.touched)}">
+                  <div class="invalid-feedback"
+                       *ngIf="f.username.errors?.required && (f.username.dirty || f.username.touched)">
+                    this field is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="justify-content-center" style="margin: auto;">
+                  <button class="btn btn-success px-4" type="button" (click)="login()" [disabled]="loginForm.invalid" [routerLink]="['/doc']">
+                    <i class="fa fa-check-square-o"></i> OK
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+Form status: {{loginForm.status}}

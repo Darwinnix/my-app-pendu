@@ -1,0 +1,94 @@
+<!-- Header -->
+<header class="app-header navbar">
+  <a class="navbar-brand" href="#">
+    <img src="../../../../assets/img/icon.png" width="35" height="30">
+    <span style="color: black; font-size: 1.5rem"><strong>My app: Pendu</strong></span>
+  </a>
+
+  <ul class="nav navbar-nav">
+    <li class="nav-item">
+      Joueur: <strong>{{user.username}}</strong>
+    </li>
+    <li class="nav-item">|</li>
+    <li class="nav-item">
+      <strong>Essais utilisés {{essai}} / 10 </strong>
+    </li>
+    <li class="nav-item">|</li>
+    <li class="nav-item">
+      Cette session: parties gagnées: <strong style="color: #008c69">{{partiesGagnees}}</strong> / parties jouées <strong style="color: black">{{partiestotales}}</strong>
+    </li>
+    <li class="nav-item">
+
+    </li>
+  </ul>
+</header>
+
+<!-- Drawing "pendu" / Dessin du "pendu" -->
+<div class="card text-center" style="width: 300px; height: 294px; margin:1% auto auto auto;">
+  <div class="card-body">
+    <img *ngIf="essai == 1" src="../../../../assets/img/01.png">
+    <img *ngIf="essai == 2" src="../../../../assets/img/02.png">
+    <img *ngIf="essai == 3" src="../../../../assets/img/03.png">
+    <img *ngIf="essai == 4" src="../../../../assets/img/04.png">
+    <img *ngIf="essai == 5" src="../../../../assets/img/05.png">
+    <img *ngIf="essai == 6" src="../../../../assets/img/06.png">
+    <img *ngIf="essai == 7" src="../../../../assets/img/07.png">
+    <img *ngIf="essai == 8" src="../../../../assets/img/08.png">
+    <img *ngIf="essai == 9" src="../../../../assets/img/09.png">
+    <img *ngIf="essai == 10" src="../../../../assets/img/10.png">
+  </div>
+</div>
+
+<!-- display of mysterious word / affichage du mot mysterieux -->
+<div class="container-fluid">
+  <div class="card w-auto text-center" style="margin:1% 10% 1% 10%;">
+    <div class="card-body">
+      <div class="text-center" style="margin: auto; font-size: 3rem">
+        <span *ngFor="let lettre of motMystere; let i = index">
+          <strong style="border: 2px solid; padding: 5px" *ngIf="i < motMystere.length">{{lettre}}</strong>
+          <strong *ngIf="i+1 < motMystere.length"> - </strong>
+        </span>
+      </div>
+      <div class="text-center" *ngIf="gagne">
+        <h2>{{randomMot.mot}}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- won party card / encadré affiché lorsque la partie est gagnée -->
+<div class="card" *ngIf="gagne" style="margin:1% 30% 0% 30%;">
+  <div class="card-header" style="background: springgreen">
+    <h4 class="modal-title text-center">Bravo {{user.username}}</h4>
+  </div>
+  <div class="card-body">
+    <p class="text-center">Vous avez trouver le mot caché!</p>
+    <p class="text-center">Si vous voulez continuer, cliquez sur "continuer", sinon, cliquez sur "quitter".</p>
+  </div>
+  <div class="card-footer">
+    <div class="text-center">
+      <button class="btn btn-info" style="width: 120px" (click)="randomizeMot()">Continuer</button>
+      &nbsp;
+      <button class="btn btn-danger " style="width: 120px" [routerLink]="['/login']">Quitter</button>
+    </div>
+  </div>
+</div>
+
+<!-- lost party card / encadré affiché lorsque la partie est perdue -->
+<div class="card" *ngIf="perdu" style="margin:1% 30% 0% 30%;">
+  <div class="card-header" style="background: #9f191f">
+    <h4 class="modal-title text-center">Vous avez perdu {{user.username}}</h4>
+  </div>
+  <div class="card-body">
+    <p class="text-center">Vous n'avez pas trouvé le mot caché!</p>
+    <p class="text-center">Si vous voulez continuer, cliquez sur "continuer", sinon, cliquez sur "quitter".</p>
+  </div>
+  <div class="card-footer">
+    <div class="text-center">
+      <button class="btn btn-info" style="width: 120px" (click)="randomizeMot()">Continuer</button>
+      &nbsp;
+      <button class="btn btn-danger " style="width: 120px" [routerLink]="['/login']">Quitter</button>
+    </div>
+  </div>
+</div>
