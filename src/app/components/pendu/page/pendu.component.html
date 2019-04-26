@@ -1,25 +1,30 @@
+<!-- Header -->
 <header class="app-header navbar">
   <a class="navbar-brand" href="#">
     <img src="../../../../assets/img/icon.png" width="35" height="30">
-
+    <span style="color: black; font-size: 1.5rem"><strong>My app: Pendu</strong></span>
   </a>
-  <span><strong>My app: Pendu</strong></span>
-  <ul class="nav navbar-nav ml-auto">
-    <li class="nav-item d-md-down-none">
-      Joueur: {{user.username}}
+
+  <ul class="nav navbar-nav">
+    <li class="nav-item">
+      Joueur: <strong>{{user.username}}</strong>
     </li>
-    <li class="nav-item d-md-down-none">|</li>
-    <li class="nav-item d-md-down-none">
-      <strong>Essais utilisés {{essai}} / 10</strong>
+    <li class="nav-item">|</li>
+    <li class="nav-item">
+      <strong>Essais utilisés {{essai}} / 10 </strong>
     </li>
-    <li class="nav-item d-md-down-none">|</li>
-    <li class="nav-item d-md-down-none">
+    <li class="nav-item">|</li>
+    <li class="nav-item">
       Cette session: parties gagnées: <strong style="color: #008c69">{{partiesGagnees}}</strong> / parties jouées <strong style="color: black">{{partiestotales}}</strong>
+    </li>
+    <li class="nav-item">
+
     </li>
   </ul>
 </header>
 
-<div class="card text-center" style="width: 300px; height: 294px; margin: auto">
+<!-- Drawing "pendu" / Dessin du "pendu" -->
+<div class="card text-center" style="width: 300px; height: 294px; margin:1% auto auto auto;">
   <div class="card-body">
     <img *ngIf="essai == 1" src="../../../../assets/img/01.png">
     <img *ngIf="essai == 2" src="../../../../assets/img/02.png">
@@ -34,20 +39,26 @@
   </div>
 </div>
 
-<div class="card text-center" style="margin:5% 10% 5% 10%;">
-  <div class="card-body">
-    <div class="row text-center" style="border: 2px solid;">
-
-      <h1 *ngFor="let lettre of motMystere; let i = index">
-        <strong *ngIf="i+1 < motMystere.length">{{lettre}}-</strong>
-        <strong *ngIf="i+1 == motMystere.length">{{lettre}}</strong>
-      </h1>
-
+<!-- display of mysterious word / affichage du mot mysterieux -->
+<div class="container-fluid">
+  <div class="card w-auto text-center" style="margin:1% 10% 1% 10%;">
+    <div class="card-body">
+      <div class="text-center" style="margin: auto; font-size: 3rem">
+        <span *ngFor="let lettre of motMystere; let i = index">
+          <strong style="border: 2px solid; padding: 5px" *ngIf="i < motMystere.length">{{lettre}}</strong>
+          <strong *ngIf="i+1 < motMystere.length"> - </strong>
+        </span>
+      </div>
+      <div class="text-center" *ngIf="gagne">
+        <h2>{{randomMot.mot}}</h2>
+      </div>
     </div>
   </div>
-</div>%
+</div>
 
-<div class="card" *ngIf="gagne" style="margin:0% 30% 0% 30%;">
+
+<!-- won party card / encadré affiché lorsque la partie est gagnée -->
+<div class="card" *ngIf="gagne" style="margin:1% 30% 0% 30%;">
   <div class="card-header" style="background: springgreen">
     <h4 class="modal-title text-center">Bravo {{user.username}}</h4>
   </div>
@@ -62,7 +73,8 @@
   </div>
 </div>
 
-<div class="card" *ngIf="perdu" style="margin:0% 30% 0% 30%;">
+<!-- lost party card / encadré affiché lorsque la partie est perdue -->
+<div class="card" *ngIf="perdu" style="margin:1% 30% 0% 30%;">
   <div class="card-header" style="background: #9f191f">
     <h4 class="modal-title text-center">Vous avez perdu {{user.username}}</h4>
   </div>

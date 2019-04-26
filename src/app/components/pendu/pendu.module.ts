@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PenduRoutingModule } from './pendu-routing.module';
 import {PenduComponent} from './page/pendu.component';
 import {RouterModule} from '@angular/router';
+import {CollapseModule} from 'ngx-bootstrap';
 
 const loginRouting: ModuleWithProviders = RouterModule.forChild( [
   {
@@ -18,6 +19,7 @@ const loginRouting: ModuleWithProviders = RouterModule.forChild( [
     loginRouting,
     CommonModule,
     PenduRoutingModule,
+    CollapseModule,
   ]
 })
 export class PenduModule { }

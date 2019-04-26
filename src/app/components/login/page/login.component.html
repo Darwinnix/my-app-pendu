@@ -5,8 +5,11 @@
         <form class="card-group" [formGroup]="loginForm" (ngSubmit)="login()">
           <div class="card p-4">
             <div class="card-body">
-              <h1>BIENVENUE</h1>
-              <p class="text-muted">Choisissez votre pseudonyme</p>
+              <div class="text-center">
+                <img src="../../../../assets/img/icon.png">
+              </div>
+              <h1 class="text-center" style="color: black"><strong>MY-APP: PENDU</strong></h1>
+              <h2 class="text-center">BIENVENUE</h2>
               <div class="form-group">
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -16,7 +19,7 @@
                   </div>
                   <input class="form-control"
                          type="text"
-                         placeholder="enter your username" required
+                         placeholder="Entrez un pseudonyme" required
                          formControlName="username"
                          name="email"
                          id="email"

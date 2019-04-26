@@ -24,7 +24,7 @@ export class PenduComponent implements OnInit, OnDestroy {
   perdu = false;
   gagne = false;
   partiesGagnees = 0;
-  partiestotales = -1;
+  partiestotales = 0;
 
   constructor(
     // tslint:disable-next-line:variable-name
@@ -36,9 +36,9 @@ export class PenduComponent implements OnInit, OnDestroy {
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
     if (this.randomMot) {
-      let compteur = 0
+      let compteur = 0;
       this.tableauLettre.forEach((lettre, i) => {
-        if (event.key === lettre) {
+        if (event.key.toUpperCase() === lettre) {
           compteur++;
           this.tableauLettre[i] = '▓';
           this.motMystere[i] = lettre;
@@ -52,18 +52,20 @@ export class PenduComponent implements OnInit, OnDestroy {
       if (this.tableauLettre.length === this.lettresTrouvees) {
         this.gagne = true;
         this.partiesGagnees++;
+        this.partiestotales++;
       }
       if (this.essai >= 10) {
         this.essai = 10;
         this.perdu = true;
         this.tableauLettre = [];
+        this.partiestotales++;
       }
     }
   }
 
   ngOnInit() {
     this.sub = this._penduService.getListOfMots()
-      .subscribe(res => {
+      .subscribe((res: any) => {
         this.mots = res;
         this.randomizeMot();
       });
@@ -77,10 +79,11 @@ export class PenduComponent implements OnInit, OnDestroy {
     randomizeMot() {
     this.gagne = this.perdu = false;
     this.essai = 0;
-    this.partiestotales++;
+
     this.motMystere = [];
     this.lettresTrouvees = 0;
     this.randomMot = this.mots[Math.floor(Math.random() * this.mots.length)];
+    this.randomMot.mot = this.randomMot.mot.toUpperCase();
     for (const lettre of this.randomMot.mot.split('')) {
       this.motMystere.push('?');
     }
