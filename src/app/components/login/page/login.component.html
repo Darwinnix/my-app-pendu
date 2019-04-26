@@ -21,8 +21,8 @@
                          type="text"
                          placeholder="Entrez un pseudonyme" required
                          formControlName="username"
-                         name="email"
-                         id="email"
+                         name="username"
+                         id="username"
                          [ngClass]="{'is-valid': !f.username.errors,
                        'is-invalid': f.username.errors && (f.username.dirty || f.username.touched)}">
                   <div class="invalid-feedback"
@@ -46,5 +46,3 @@
     </div>
   </div>
 </div>
-
-Form status: {{loginForm.status}}

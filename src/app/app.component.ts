@@ -8,7 +8,7 @@ import {UserModel} from './shared/models/user.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy{
+export class AppComponent implements OnInit, OnDestroy {
   title = 'my-app-pendu';
 
   sub: Subscription;

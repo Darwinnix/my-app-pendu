@@ -1,6 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
 
 import { DocumentationComponent } from './documentation.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {PenduComponent} from '../../pendu/page/pendu.component';
+import {LoginService} from '../../login/services/login.service';
+import {Router} from '@angular/router';
+import {By} from '@angular/platform-browser';
+import {Location} from '@angular/common';
 
 describe('DocumentationComponent', () => {
   let component: DocumentationComponent;
@@ -8,7 +14,13 @@ describe('DocumentationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DocumentationComponent ]
+      declarations: [ DocumentationComponent, PenduComponent ],
+      imports: [
+        RouterTestingModule.withRoutes([
+          {path: 'pendu', component: PenduComponent}
+        ])
+      ],
+      providers: [LoginService]
     })
     .compileComponents();
   }));
@@ -19,7 +31,13 @@ describe('DocumentationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should navigate to pendu',
+    async(inject([Router, Location], (router: Router, location: Location) => {
+      fixture.detectChanges();
+
+      fixture.debugElement.query(By.css('button')).nativeElement.click();
+      fixture.whenStable().then(() => {
+        expect(location.path()).toEqual('/pendu');
+      });
+    })));
 });
