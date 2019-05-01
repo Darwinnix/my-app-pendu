@@ -35,32 +35,34 @@ export class PenduComponent implements OnInit, OnDestroy {
 
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    if (this.randomMot && !this.gagne && !this.perdu) {
-      let compteur = 0;
-      this.tableauLettre.forEach((lettre, i) => {
-        if (event.key.toUpperCase() === lettre) {
-          compteur++;
-          this.tableauLettre[i] = '▓';
-          this.motMystere[i] = lettre;
-          this.lettresTrouvees++;
+    console.log(event.key, ' ', event.code, ' ', event.keyCode);
+    if ((event.keyCode <= 90 && event.keyCode >= 65)
+      || event.keyCode === 50 || event.keyCode === 55) {
+      if (this.randomMot && !this.gagne && !this.perdu) {
+        let compteur = 0;
+        this.tableauLettre.forEach((lettre, i) => {
+          if (event.key.toUpperCase() === lettre) {
+            compteur++;
+            this.tableauLettre[i] = '▓';
+            this.motMystere[i] = lettre;
+            this.lettresTrouvees++;
+          }
+        });
+        if (compteur === 0) {
+          this.essai++;
+          compteur = 0;
         }
-        console.log(this.lettresTrouvees, ' / ', this.tableauLettre.length);
-        console.log('gagne = ', this.gagne);
-      });
-      if (compteur === 0) {
-        this.essai++;
-        compteur = 0;
-      }
-      if (this.tableauLettre.length === this.lettresTrouvees) {
-        this.gagne = true;
-        this.partiesGagnees++;
-        this.partiestotales++;
-      }
-      if (this.essai >= 10) {
-        this.essai = 10;
-        this.perdu = true;
-        this.tableauLettre = [];
-        this.partiestotales++;
+        if (this.tableauLettre.length === this.lettresTrouvees) {
+          this.gagne = true;
+          this.partiesGagnees++;
+          this.partiestotales++;
+        }
+        if (this.essai >= 10) {
+          this.essai = 10;
+          this.perdu = true;
+          this.tableauLettre = [];
+          this.partiestotales++;
+        }
       }
     }
   }

@@ -1,0 +1,120 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "mots": [
+    {
+      "mot": "abandonner"
+    },
+    {
+      "mot": "abasourdir"
+    },
+    {
+      "mot": "abdomen"
+    },
+    {
+      "mot": "abricot"
+    },
+    {
+      "mot": "fabuleux"
+    },
+    {
+      "mot": "factionnaire"
+    },
+    {
+      "mot": "maladresse"
+    },
+    {
+      "mot": "malfaiteur"
+    },
+    {
+      "mot": "pantoufle"
+    },
+    {
+      "mot": "parcours"
+    },
+    {
+      "mot": "meuble"
+    },
+    {
+      "mot": "variation"
+    },
+    {
+      "mot": "repasser"
+    },
+    {
+      "mot": "répondre"
+    },
+    {
+      "mot": "repère"
+    },
+    {
+      "mot": "objection"
+    },
+    {
+      "mot": "nuisible"
+    },
+    {
+      "mot": "occidental"
+    },
+    {
+      "mot": "chancelier"
+    },
+    {
+      "mot": "terreux"
+    },
+    {
+      "mot": "vermeil"
+    },
+    {
+      "mot": "zoologie"
+    },
+    {
+      "mot": "introduction"
+    },
+    {
+      "mot": "confrère"
+    },
+    {
+      "mot": "blocage"
+    },
+    {
+      "mot": "blason"
+    },
+    {
+      "mot": "améthyste"
+    },
+    {
+      "mot": "fripouille"
+    },
+    {
+      "mot": "inoffensif"
+    },
+    {
+      "mot": "nourrisson"
+    },
+    {
+      "mot": "hectare"
+    },
+    {
+      "mot": "despotique"
+    },
+    {
+      "mot": "désobéissance"
+    },
+    {
+      "mot": "justicier"
+    }
+  ]
+}
