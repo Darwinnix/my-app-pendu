@@ -1,9 +1,9 @@
 import {async, ComponentFixture, fakeAsync, inject, TestBed, tick} from '@angular/core/testing';
 
 import {LoginComponent} from './login.component';
-import {Form, FormBuilder, ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule, Location} from '@angular/common';
-import {Router, RouterModule} from '@angular/router';
+import {Router} from '@angular/router';
 import {By} from '@angular/platform-browser';
 import {RouterTestingModule} from '@angular/router/testing';
 import {DocumentationComponent} from '../../documentation/page/documentation.component';

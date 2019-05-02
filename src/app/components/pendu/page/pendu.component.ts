@@ -1,4 +1,4 @@
-import {AfterViewChecked, AfterViewInit, Component, HostListener, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {PenduService} from '../services/pendu.service';
 import {Subscription} from 'rxjs';
 import {UserModel} from '../../../shared/models/user.model';
@@ -25,7 +25,7 @@ export class PenduComponent implements OnInit, OnDestroy {
   gagne = false;
   partiesGagnees = 0;
   partiestotales = 0;
-
+  chosenLetter: string;
   constructor(
     // tslint:disable-next-line:variable-name
     private _penduService: PenduService,
@@ -34,14 +34,16 @@ export class PenduComponent implements OnInit, OnDestroy {
   ) { }
 
   @HostListener('window:keyup', ['$event'])
-  keyEvent(event: KeyboardEvent) {
-    console.log(event.key, ' ', event.code, ' ', event.keyCode);
-    if ((event.keyCode <= 90 && event.keyCode >= 65)
-      || event.keyCode === 50 || event.keyCode === 55) {
+  keyEvent(event?: KeyboardEvent) {
+    if (event) {
+      this.chosenLetter = event.key.toUpperCase();
+    }
+    if ((this.chosenLetter.charCodeAt(0) <= 90 && this.chosenLetter.charCodeAt(0) >= 65)
+      || this.chosenLetter.charCodeAt(0) === 200 || this.chosenLetter.charCodeAt(0) === 201) {
       if (this.randomMot && !this.gagne && !this.perdu) {
         let compteur = 0;
         this.tableauLettre.forEach((lettre, i) => {
-          if (event.key.toUpperCase() === lettre) {
+          if (this.chosenLetter.toUpperCase() === lettre) {
             compteur++;
             this.tableauLettre[i] = '▓';
             this.motMystere[i] = lettre;
