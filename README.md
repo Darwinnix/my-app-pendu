@@ -10,7 +10,10 @@ Install git if you haven't it : https://git-scm.com/downloads
 
 Clone project with command : git clone https://github.com/Darwinnix/my-app-pendu.git
 
-In my-app-pendu directory, run `npm install`.
+download and install yarn : https://yarnpkg.com/en/docs/install#windows-stable
+: 
+
+In my-app-pendu directory, run `yarn`.
 
 If json-server is not installed, run `npm install -g json-server`
 
@@ -18,7 +21,7 @@ If json-server is not installed, run `npm install -g json-server`
 
 Json-server is an API Rest that contains words
 
-In a terminal run `ng json-server --watch db.json --port 3004`
+In a terminal run `json-server --watch db.json --port 3004`
 
 ## Development server
 
