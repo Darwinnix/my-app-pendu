@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="card mx-4" style="margin-top: 10%">
+    <div class="card-header" style="background: #00aced">
+      <h1 class="text-center"><strong>Bonjour {{user.username}}</strong></h1>
+    </div>
+    <div class="card-body p-4">
+
+      <h3 class="text-center">Bienvenue dans My app: Pendu</h3>
+      <div class="text-justify" style="margin: 0% 10% 0% 10%">
+        <p >Ce jeu est un jeu de pendu classique. Le but est de trouver un mot en proposant des lettres.</p>
+        <ul>
+          <li>
+            Tapez la touche de la lettre souhaitée. Si la lettre en question est contenue dans le mot mystère une ou
+            plusieurs fois, elle s'affichera automatiquement.
+          </li>
+          <li>
+            Chaque fois qu'une lettre est contenue dans le mot, le nombre d'essais ne change pas.
+          </li>
+          <li>
+            Si la lettre choisie n'est pas contenue dans le mot, le nombre d'essais s'incrémente de 1
+            (et le dessin du pendu se complète).
+          </li>
+          <li>
+            La partie est gagnée si le mot est totalement découvert avant que le dessin du pendu soit complet
+            (soit 10 essais).
+          </li>
+          <li>
+            La partie est perdue si le dessin est complété avant de découvrir le mot au complet.
+          </li>
+          <li>
+            Attention, les lettres e, é et è sont différentes dans cette version du pendu.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-footer text-center">
+      <button class="btn btn-success" [routerLink]="['/pendu']">Commencer</button>
+    </div>
+  </div>
+</div>
+
+
