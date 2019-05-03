@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {DocumentationComponent} from './page/documentation.component';
+import {IsSignedInGuard} from '../../core/is-signed-in.guard';
 
 const routes: Routes = [
   {
@@ -10,6 +11,9 @@ const routes: Routes = [
         path: '',
         component: DocumentationComponent
       }
+    ],
+    canActivate: [
+      IsSignedInGuard
     ]
   }
 ];

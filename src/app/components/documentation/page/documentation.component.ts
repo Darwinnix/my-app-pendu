@@ -6,7 +6,7 @@ import {Subscription} from 'rxjs';
 @Component({
   selector: 'app-documentation',
   templateUrl: './documentation.component.html',
-  styleUrls: ['./documentation.component.sass']
+  styleUrls: ['./documentation.component.css']
 })
 export class DocumentationComponent implements OnInit, OnDestroy {
 
@@ -22,7 +22,10 @@ export class DocumentationComponent implements OnInit, OnDestroy {
     this.sub = this._loginService.getUser()
       .subscribe((res: any) => {
         this.user = res;
-      });
+      },
+        (err: any) => {
+        console.log('an error occurred during the call of user: ', err);
+        });
   }
 
   ngOnDestroy(): void {

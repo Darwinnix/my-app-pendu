@@ -8,6 +8,7 @@ import {LoginModule} from './components/login/login.module';
 import {PenduModule} from './components/pendu/pendu.module';
 import {HttpClientModule} from '@angular/common/http';
 import {DocumentationModule} from './components/documentation/documentation.module';
+import {IsSignedInGuard} from './core/is-signed-in.guard';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {useHash: false});
 
@@ -25,7 +26,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {useHash: fals
     AngularFontAwesomeModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [IsSignedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

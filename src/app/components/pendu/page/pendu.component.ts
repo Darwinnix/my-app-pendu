@@ -7,7 +7,7 @@ import {LoginService} from '../../login/services/login.service';
 @Component({
   selector: 'app-pendu',
   templateUrl: './pendu.component.html',
-  styleUrls: ['./pendu.component.sass'],
+  styleUrls: ['./pendu.component.css'],
 })
 export class PenduComponent implements OnInit, OnDestroy {
 
@@ -74,11 +74,17 @@ export class PenduComponent implements OnInit, OnDestroy {
       .subscribe((res: any) => {
         this.mots = res;
         this.randomizeMot();
-      });
+      },
+        (err: any) => {
+        console.log('an error occurred during the call of words: ', err);
+        });
     this.sub = this._loginService.getUser()
       .subscribe((res: any) => {
         this.user = res;
-      });
+      },
+        (err: any) => {
+          console.log('an error occurred during the call of user: ', err);
+        });
   }
 
     randomizeMot() {

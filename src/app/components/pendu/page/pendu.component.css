@@ -1,0 +1,48 @@
+.titleApp {
+  color: black;
+  font-size: 1.5rem
+}
+
+.won {
+  color: #008c69;
+}
+
+.played {
+  color: black;
+}
+
+.drawing {
+  width: 300px;
+  height: 294px;
+  margin:1% auto auto auto;
+}
+
+.word {
+  margin:1% 10% 1% 10%;
+}
+
+.centerWord {
+  margin: auto;
+  font-size: 3rem;
+}
+
+.letter {
+  border: 2px solid;
+  padding: 5px;
+}
+
+.wonCard {
+  margin:1% 30% 0% 30%;
+}
+
+.wonCardHeader {
+  background: springgreen;
+}
+
+.cardFootButton {
+  width: 120px;
+}
+
+.lostCardHeader {
+  background: #9f191f;
+}

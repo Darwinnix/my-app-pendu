@@ -6,9 +6,9 @@
           <div class="card p-4">
             <div class="card-body">
               <div class="text-center">
-                <img src="../../../../assets/img/icon.png">
+                <img src="assets/img/icon.png">
               </div>
-              <h1 class="text-center" style="color: black"><strong>MY-APP: PENDU</strong></h1>
+              <h1 class="title text-center"><strong>MY-APP: PENDU</strong></h1>
               <h2 class="text-center">BIENVENUE</h2>
               <div class="form-group">
                 <div class="input-group mb-3">
@@ -23,18 +23,18 @@
                          formControlName="username"
                          name="username"
                          id="username"
-                         [ngClass]="{'is-valid': !f.username.errors,
-                       'is-invalid': f.username.errors && (f.username.dirty || f.username.touched)}">
+                         [ngClass]="{'is-valid': !FormControl.username.errors,
+                       'is-invalid': FormControl.username.errors && (FormControl.username.dirty || FormControl.username.touched)}">
                   <div class="invalid-feedback"
-                       *ngIf="f.username.errors?.required && (f.username.dirty || f.username.touched)">
+                       *ngIf="FormControl.username.errors?.required && (FormControl.username.dirty || FormControl.username.touched)">
                     this field is required
                   </div>
                 </div>
               </div>
 
               <div class="row">
-                <div class="justify-content-center" style="margin: auto;">
-                  <button class="btn btn-success px-4" type="button" (click)="login()" [disabled]="loginForm.invalid" [routerLink]="['/doc']">
+                <div class="centerButton justify-content-center">
+                  <button class="btn btn-success px-4" type="button" (click)="login()" [disabled]="loginForm.invalid">
                     <i class="fa fa-check-square-o"></i> OK
                   </button>
                 </div>
