@@ -5,13 +5,8 @@ import {IsSignedInGuard} from '../../core/is-signed-in.guard';
 
 const routes: Routes = [
   {
-    path: 'pendu',
-    children: [
-      {
-        path: '',
-        component: PenduComponent
-      }
-    ],
+    path: '',
+    component: PenduComponent,
     canActivate: [
       IsSignedInGuard
     ]

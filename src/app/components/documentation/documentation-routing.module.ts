@@ -5,13 +5,8 @@ import {IsSignedInGuard} from '../../core/is-signed-in.guard';
 
 const routes: Routes = [
   {
-    path: 'doc',
-    children: [
-      {
-        path: '',
-        component: DocumentationComponent
-      }
-    ],
+    path: '',
+    component: DocumentationComponent,
     canActivate: [
       IsSignedInGuard
     ]
